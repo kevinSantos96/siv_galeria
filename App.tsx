@@ -1,20 +1,36 @@
 import 'react-native-gesture-handler';
-import React from 'react';
-import {SafeAreaView, useColorScheme} from 'react-native';
+import React, {useEffect} from 'react';
+import {Platform} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
-import {Colors} from 'react-native/Libraries/NewAppScreen';
 import MyTabs from './src/components/TabBar';
 import {SplashScreen} from './src/views/SplashScreen';
+import {
+  PermissionMediaImages,
+  PermissionMediaVideo,
+  PermissionMediaAudio,
+  PermissionsWriteStorage,
+  PermissonReadStorage,
+  PermissonCamera,
+} from './src/helpers/Permissions';
 
 const Stack = createStackNavigator();
 
 function App() {
-  const isDarkMode = useColorScheme() === 'dark';
-
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
+  function getPermissons() {
+    if (Platform.OS === 'android' && Platform.Version === 33) {
+      PermissionMediaImages();
+      PermissionMediaVideo();
+      PermissionMediaAudio();
+    } else {
+      PermissionsWriteStorage();
+      PermissonReadStorage();
+      PermissonCamera();
+    }
+  }
+  useEffect(() => {
+    getPermissons();
+  }, []);
 
   return (
     <NavigationContainer>

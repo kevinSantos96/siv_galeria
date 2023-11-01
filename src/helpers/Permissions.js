@@ -67,8 +67,7 @@ export const PermissionsWriteStorage= async()=>{
 //Libreria Permission
 export const PermissionMediaImages =()=>{
     check(PERMISSIONS.ANDROID.READ_MEDIA_IMAGES).then((result)=>{
-      console.log(result)
-      switch (result.toUpperCase()){
+      switch (result){
         case RESULTS.GRANTED:
           console.log('Permiso a fotos concedido')
           break;
@@ -97,8 +96,7 @@ export const PermissionMediaImages =()=>{
 export const PermissionMediaVideo =()=>{
   
     check(PERMISSIONS.ANDROID.READ_MEDIA_VIDEO).then((result)=>{
-      console.log(result)
-      switch (result.toUpperCase()){
+      switch (result){
         case RESULTS.GRANTED:
           console.log('Permiso a videos concedido')
           break;
@@ -124,10 +122,8 @@ export const PermissionMediaVideo =()=>{
 }
 
 export const PermissionMediaAudio = async()=>{
-  // const resp = await check(PERMISSIONS.ANDROID.READ_MEDIA_AUDIO)
-  // console.log(resp.toUpperCase())
     check(PERMISSIONS.ANDROID.READ_MEDIA_AUDIO).then((result)=>{
-      switch (result.toUpperCase()){
+      switch (result){
         case RESULTS.GRANTED:
           console.log('Permiso a audio concedido')
           break;
