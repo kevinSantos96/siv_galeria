@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "galeria_app.app"
-               BlueprintName = "galeria_app"
-               ReferencedContainer = "container:galeria_app.xcodeproj">
+               BuildableName = "sivgaleria.app"
+               BlueprintName = "sivgaleria"
+               ReferencedContainer = "container:sivgaleria.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "galeria_appTests.xctest"
-               BlueprintName = "galeria_appTests"
-               ReferencedContainer = "container:galeria_app.xcodeproj">
+               BuildableName = "sivgaleriaTests.xctest"
+               BlueprintName = "sivgaleriaTests"
+               ReferencedContainer = "container:sivgaleria.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,9 +55,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "galeria_app.app"
-            BlueprintName = "galeria_app"
-            ReferencedContainer = "container:galeria_app.xcodeproj">
+            BuildableName = "sivgaleria.app"
+            BlueprintName = "sivgaleria"
+            ReferencedContainer = "container:sivgaleria.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -72,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "galeria_app.app"
-            BlueprintName = "galeria_app"
-            ReferencedContainer = "container:galeria_app.xcodeproj">
+            BuildableName = "sivgaleria.app"
+            BlueprintName = "sivgaleria"
+            ReferencedContainer = "container:sivgaleria.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
