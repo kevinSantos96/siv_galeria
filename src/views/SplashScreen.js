@@ -36,7 +36,7 @@ export const SplashScreen = ({navigation}) => {
       <View style={{width: '50%', height: '40%'}}>
         <Image
           style={styles.Image}
-          source={require('../assets/bacredomatic_logo_small.png')}
+          source={require('../assets/lion.png')}
         />
       </View>
       <View style={{width: '50%'}}>

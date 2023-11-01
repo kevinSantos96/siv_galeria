@@ -127,7 +127,6 @@ export const PermissionMediaAudio = async()=>{
   // const resp = await check(PERMISSIONS.ANDROID.READ_MEDIA_AUDIO)
   // console.log(resp.toUpperCase())
     check(PERMISSIONS.ANDROID.READ_MEDIA_AUDIO).then((result)=>{
-      console.log(result)
       switch (result.toUpperCase()){
         case RESULTS.GRANTED:
           console.log('Permiso a audio concedido')
