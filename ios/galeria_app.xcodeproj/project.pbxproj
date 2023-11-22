@@ -449,7 +449,7 @@
 					"-lc++",
 					"$(inherited)",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.vpacomercial.galeria";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.vapcomercial.sivgaleria";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/sivgaleria.app/sivgaleria";
 			};
@@ -473,7 +473,7 @@
 					"-lc++",
 					"$(inherited)",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.vpacomercial.galeria";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.vapcomercial.sivgaleria";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/sivgaleria.app/sivgaleria";
 			};
@@ -499,7 +499,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.vpacomercial.galeria";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.vapcomercial.sivgaleria";
 				PRODUCT_NAME = "sivgaleria";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -526,7 +526,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.vpacomercial.galeria";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.vapcomercial.sivgaleria";
 				PRODUCT_NAME = "sivgaleria";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
