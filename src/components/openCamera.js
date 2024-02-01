@@ -27,18 +27,18 @@ const OpenCamera = ({setRefreshing}) => {
       let imageUri = resp.uri || resp.assets?.[0]?.uri;
       //console.log(imageUri)
       //valida si el directorio existe
-      RNFS.exists(`${RNFS.ExternalStorageDirectoryPath}/Pictures`).then((response)=>{
+      RNFS.exists(`${RNFS.ExternalStorageDirectoryPath}/Camera`).then((response)=>{
        if (response){
         console.log("existe")
        }else{
-        RNFS.mkdir(`${RNFS.ExternalStorageDirectoryPath}/Pictures`).then(()=>{console.log("Carpeta creada con exito")})
+        RNFS.mkdir(`${RNFS.ExternalStorageDirectoryPath}/Camera`).then(()=>{console.log("Carpeta creada con exito")})
         .catch(err=>console.log('error en crear la carpeta'+err))
        }
       }).catch((err) => {         
         console.log(err);
       })
 
-      const imagePath = `${RNFS.ExternalStorageDirectoryPath}/Pictures/${nameImage}.jpg`
+      const imagePath = `${RNFS.ExternalStorageDirectoryPath}/DCIM/Camera/${nameImage}.jpg`
 
       RNFS.moveFile(imageUri,imagePath).then(()=>{
           const source = {uri: imagePath}

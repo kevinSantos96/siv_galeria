@@ -28,11 +28,12 @@ const ImageListScreen = () => {
       if (pictures.status) {
         // setImagenesFile([imagenesFiles,...pictures.items])
         pictures.items.map(file => {
-          const {name, mtime, path} = file;
+          const {name, mtime, path,size} = file;
           data.push({
             name,
             mtime,
             path,
+            size
           });
         });
       }
@@ -40,11 +41,12 @@ const ImageListScreen = () => {
       const cameraFolder = await getImagesCamera();
       if (cameraFolder.status) {
         cameraFolder.items.map(file => {
-          const {name, mtime, path} = file;
+          const {name, mtime, path,size} = file;
           data.push({
             name,
             mtime,
             path,
+            size
           });
         });
       }
@@ -52,11 +54,12 @@ const ImageListScreen = () => {
       const whatsappImages = await getImagesWhatsapp();
       if (whatsappImages.status) {
         whatsappImages.items.map(file => {
-          const {name, mtime, path} = file;
+          const {name, mtime, path,size} = file;
           data.push({
             name,
             mtime,
             path,
+            size
           });
         });
       }
@@ -64,11 +67,12 @@ const ImageListScreen = () => {
       const downloadImages = await getImagesDownload();
       if (downloadImages.status) {
         downloadImages.items.map(file => {
-          const {name, mtime, path} = file;
+          const {name, mtime, path,size} = file;
           data.push({
             name,
             mtime,
             path,
+            size
           });
         });
       }
@@ -76,11 +80,12 @@ const ImageListScreen = () => {
       const OpenCameraPhotos = await getOpenCameraPictures();
       if (OpenCameraPhotos.status) {
         OpenCameraPhotos.items.map(file => {
-          const {name, mtime, path} = file;
+          const {name, mtime, path,size} = file;
           data.push({
             name,
             mtime,
             path,
+            size
           });
         });
       }
@@ -129,6 +134,9 @@ const ImageListScreen = () => {
                   path={'file:///' + item.path}
                   uri={item.path}
                   setRefreshing={setRefreshing}
+                  size={item.size}
+                  fecha={item.mtime}
+                  name={item.name}
                 />
               );
             }}
