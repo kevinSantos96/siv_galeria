@@ -5,6 +5,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import MyTabs from './src/components/TabBar';
 import {SplashScreen} from './src/views/SplashScreen';
+import { ConfigCam } from './src/views/ConfigCam';
 import {
   PermissionMediaImages,
   PermissionMediaVideo,
@@ -43,6 +44,11 @@ function App() {
         <Stack.Screen
           name="TabNavigator"
           component={MyTabs}
+          options={{header: () => null}}
+        />
+        <Stack.Screen
+          name="configCamera"
+          component={ConfigCam}
           options={{header: () => null}}
         />
       </Stack.Navigator>

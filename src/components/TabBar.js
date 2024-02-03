@@ -4,6 +4,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons'
 //Screens
 import DocumentScreen from "../views/DocumentScreen";
 import ImageListScreen from "../views/MultimediaScreen";
+import SettingsScreen from "../views/SettingsScreen"
 const Tab = createBottomTabNavigator()
 
 const MyTabs=()=>{
@@ -22,6 +23,9 @@ const MyTabs=()=>{
                                     iconName= focused ? 'document':'document-outline'
                                 }else if(rn==="Camara"){
                                     iconName= focused ? 'camera':'camera-outline'
+                                
+                                }else if(rn==="Configuración"){
+                                    iconName=focused ? 'settings':'settings-outline'
                                 }
                                 return <Ionicons name={iconName} size={size} color={color}/>
                             },
@@ -40,8 +44,8 @@ const MyTabs=()=>{
                         })}
                         >
             <Tab.Screen name="Fotos" component ={ImageListScreen} options={{header:()=>null}} />
-            {/* <Tab.Screen name="Grabador" component ={CameraScreen} /> */}
             <Tab.Screen name="Documentos" component ={DocumentScreen}  />
+            <Tab.Screen name="Configuración" component ={SettingsScreen} />
         </Tab.Navigator>
     )
 }

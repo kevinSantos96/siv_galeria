@@ -1,4 +1,4 @@
-package com.vpacomercial.galeria;
+package com.vpacomercial.sivgaleria;
 
 import android.app.Application;
 import com.facebook.react.PackageList;

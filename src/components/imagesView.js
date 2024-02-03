@@ -5,17 +5,19 @@ import {
   View,
   TouchableOpacity,
   Modal,
-  Alert,
+  Alert
 } from 'react-native';
 import ImageViewer from 'react-native-image-zoom-viewer';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import RNFS from 'react-native-fs';
 import ImagePicker from 'react-native-image-crop-picker';
 import ModalView from './modalView';
+import { ModalInfo } from './modalInfo';
 
-function Images({path, uri, setRefreshing}) {
+function Images({path, uri, setRefreshing,size,fecha,name}) {
   const [imageSelect, setimageSelect] = useState([]);
   const [openModal, setOpenModal] = useState(false);
+  const [openModalInfo, setOpenModalInfo] = useState(false);
 
   function toggleModal() {
     setimageSelect([{url: path, props: {}}]);
@@ -98,6 +100,14 @@ function Images({path, uri, setRefreshing}) {
             />
           </TouchableOpacity>
           <ImageViewer style={styles.imageOpen} imageUrls={imageSelect} />
+          {openModalInfo &&(
+            <ModalInfo  size={size}
+                        path={path}
+                        name={name}
+                        fecha={fecha}
+                        openModal={openModalInfo}
+                        setOpenModal={setOpenModalInfo} />
+          )}
           <View
             style={{
               flexDirection: 'row',
@@ -116,6 +126,14 @@ function Images({path, uri, setRefreshing}) {
             <TouchableOpacity onPress={handleAlert}>
               <Ionicons
                 name="trash-outline"
+                color={'#FFF'}
+                size={30}
+                style={{marginBottom: 8, marginRight: 5}}
+              />
+            </TouchableOpacity>
+            <TouchableOpacity onPress={()=>setOpenModalInfo(!openModalInfo)}>
+              <Ionicons
+                name="information-circle-outline"
                 color={'#FFF'}
                 size={30}
                 style={{marginBottom: 8, marginRight: 5}}
