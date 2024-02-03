@@ -8,9 +8,9 @@ export const ModalInfo = ({size,path,name,fecha,openModal,setOpenModal}) => {
    const nombreArr = path.split('/0')
   
   return (
-    <View style={{backgroundColor:'rgba(52, 52, 52, 0.8)', height:'31%'}}>
+    <View style={{ height:'31%'}}>
         <View style={style.modalStyle}>
-            <TouchableOpacity onPress={()=>setOpenModal(!openModal)} >
+            <TouchableOpacity onPress={()=>setOpenModal(!openModal)} style={{alignItems:'flex-end'}}>
             <Ionicons
               name="close-outline"
               color={'#000'}
@@ -19,10 +19,10 @@ export const ModalInfo = ({size,path,name,fecha,openModal,setOpenModal}) => {
             />
             </TouchableOpacity>
             <View style={style.contentInfo}>
-                <Text  style={{color:'#000'}}>nombre: {name}</Text>
-                <Text  style={{color:'#000'}}>Tamaño: {(size/1000).toFixed(2)} Kb</Text>
-                <Text  style={{color:'#000'}}>Ubicación: {nombreArr[1]}</Text>
-                <Text  style={{color:'#000'}}>Fecha Creado: {fechaCreado}</Text>
+              <View style={{flexDirection:'row'}}><Text style={{color:'#000', fontSize:16, fontWeight:'600'}}>Nombre: </Text><Text  style={{color:'#000'}}> {name}</Text></View>
+              <View style={{flexDirection:'row'}}><Text style={{color:'#000', fontSize:16, fontWeight:'600'}}>Tamaño: </Text><Text  style={{color:'#000'}}> {(size/1000).toFixed(2)} Kb</Text></View>
+              <View style={{flexDirection:'row'}}><Text style={{color:'#000', fontSize:16, fontWeight:'600'}}>Ubicación: </Text><Text  style={{color:'#000'}}>Ubicación: {nombreArr[1]}</Text></View>
+              <View style={{flexDirection:'row'}}><Text style={{color:'#000', fontSize:16, fontWeight:'600'}}>Creado: </Text><Text  style={{color:'#000'}}>Fecha Creado: {fechaCreado}</Text></View>
             </View>
         </View>
     </View>
@@ -30,12 +30,12 @@ export const ModalInfo = ({size,path,name,fecha,openModal,setOpenModal}) => {
 }
 
 const style=StyleSheet.create({
-    modalStyle:{backgroundColor:'#FFF',
-                width:'100%',
+    modalStyle:{backgroundColor:'rgba(255,255,255,0.9)',
                 height:'95%',
               borderTopLeftRadius:10,
             borderTopRightRadius:10},
     contentInfo:{
-      padding:10
+      padding:10,
+      width:'90%'
     }
 })

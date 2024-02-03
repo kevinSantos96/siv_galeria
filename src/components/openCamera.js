@@ -4,17 +4,19 @@ import { PermissonCamera } from '../helpers/Permissions'
 import { GenerarId } from '../helpers/generarId'
 import { launchCamera } from 'react-native-image-picker';
 import RNFS from 'react-native-fs';
-import Ionicons from 'react-native-vector-icons/Ionicons'
+import Ionicons from 'react-native-vector-icons/Ionicons';
+//compress
+import {Image} from 'react-native-compressor';
 
-const OpenCamera = ({setRefreshing}) => {
+const OpenCamera =  ({setRefreshing}) => {
   const openCameraRN= ()=>{
     
     const options={
       mediaType: 'photo',
-      quality: 0.5,
+      quality: 0.6,
       saveToPhotos:false,
-      cameraType:'back'
-    
+      cameraType:'back',
+      maxHeight:100
     }
 
     launchCamera(options,resp=>{
@@ -25,13 +27,12 @@ const OpenCamera = ({setRefreshing}) => {
     }else{
       const nameImage = GenerarId();
       let imageUri = resp.uri || resp.assets?.[0]?.uri;
-      //console.log(imageUri)
-      //valida si el directorio existe
-      RNFS.exists(`${RNFS.ExternalStorageDirectoryPath}/Camera`).then((response)=>{
+
+      RNFS.exists(`${RNFS.ExternalStorageDirectoryPath}/DCIM/Camera`).then((response)=>{
        if (response){
         console.log("existe")
        }else{
-        RNFS.mkdir(`${RNFS.ExternalStorageDirectoryPath}/Camera`).then(()=>{console.log("Carpeta creada con exito")})
+        RNFS.mkdir(`/storage/emulated/0/DCIM/Camera`).then(()=>{console.log("Carpeta creada con exito")})
         .catch(err=>console.log('error en crear la carpeta'+err))
        }
       }).catch((err) => {         
@@ -39,14 +40,16 @@ const OpenCamera = ({setRefreshing}) => {
       })
 
       const imagePath = `${RNFS.ExternalStorageDirectoryPath}/DCIM/Camera/${nameImage}.jpg`
-
-      RNFS.moveFile(imageUri,imagePath).then(()=>{
-          const source = {uri: imagePath}
+      Image.compress(imageUri,{
+        quality: 0.7,
+      }).then((res)=>{
+        RNFS.moveFile(res,imagePath).then(()=>{
           setRefreshing(true)
         }) 
         .catch((err)=>{
           console.log('Error el almacenar la imagen: ',err)
         })
+      }).catch((err)=>{console.log('compresion fallo: ',err)})
     }
     })
   }

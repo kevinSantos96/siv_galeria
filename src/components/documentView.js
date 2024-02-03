@@ -16,7 +16,7 @@ const DocumentViwer = ({path}) => {
       const cameraDirectory = RNFS.ExternalStorageDirectoryPath + '/DCIM/Camera';
       const directoryExists = await RNFS.exists(cameraDirectory);
       if (!directoryExists) {
-        await RNFS.mkdir(cameraDirectory);
+        await RNFS.mkdir('/storage/emulated/0/DCIM/Camera');
       }
 
       // Genera un nombre de archivo único

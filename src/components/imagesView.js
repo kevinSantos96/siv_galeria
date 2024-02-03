@@ -29,9 +29,12 @@ function Images({path, uri, setRefreshing,size,fecha,name}) {
     ImagePicker.openCropper({
       path: path,
       freeStyleCropEnabled: true,
+      compressImageQuality:0.7,
+      height:100
+      
     })
       .then(image => {
-        const imagePath = `${RNFS.ExternalStorageDirectoryPath}/Pictures/${image.modificationDate}.jpg`;
+        const imagePath = `${RNFS.ExternalStorageDirectoryPath}/DCIM/Camera/${image.modificationDate}.jpg`;
         RNFS.copyFile(image.path, imagePath)
           .then(() => {
             console.log('Imagen almacenada con exito: ', image.path);

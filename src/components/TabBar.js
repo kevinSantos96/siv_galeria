@@ -23,9 +23,8 @@ const MyTabs=()=>{
                                     iconName= focused ? 'document':'document-outline'
                                 }else if(rn==="Camara"){
                                     iconName= focused ? 'camera':'camera-outline'
-                                
-                                }else if(rn==="Configuración"){
-                                    iconName=focused ? 'settings':'settings-outline'
+                                // }else if(rn==="Configuración"){
+                                //     iconName=focused ? 'settings':'settings-outline'
                                 }
                                 return <Ionicons name={iconName} size={size} color={color}/>
                             },
@@ -45,7 +44,7 @@ const MyTabs=()=>{
                         >
             <Tab.Screen name="Fotos" component ={ImageListScreen} options={{header:()=>null}} />
             <Tab.Screen name="Documentos" component ={DocumentScreen}  />
-            <Tab.Screen name="Configuración" component ={SettingsScreen} />
+            {/* <Tab.Screen name="Configuración" component ={SettingsScreen} /> */}
         </Tab.Navigator>
     )
 }
