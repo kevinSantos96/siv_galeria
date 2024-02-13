@@ -25,7 +25,7 @@ const ModalView = ({
             style={{marginTop: 10, marginRight: 5}}
           />
         </TouchableOpacity>
-        <ImageViewer style={styles.imageOpen} imageUrls={imageSelect} />
+        {/* <ImageViewer style={styles.imageOpen} imageUrls={imageSelect} /> */}
         <View
           style={{
             flexDirection: 'row',

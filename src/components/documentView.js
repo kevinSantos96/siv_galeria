@@ -56,6 +56,9 @@ const DocumentViwer = ({path}) => {
         onPageChanged={(page, numberOfPages) => {
           console.log(`Current page: ${page}`);
         }}
+        onError={(error) => {
+          console.warn(error);
+      }}
         style={styles.pdf}
       />
     </ViewShot>

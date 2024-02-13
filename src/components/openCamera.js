@@ -25,21 +25,22 @@ const OpenCamera =  ({setRefreshing}) => {
     }else if (resp.error){
         console.log("error al abrir la camara: ",resp.error)
     }else{
-      const nameImage = GenerarId();
+      const nameImage = 'IMG_'+ GenerarId();
       let imageUri = resp.uri || resp.assets?.[0]?.uri;
 
-      RNFS.exists(`${RNFS.ExternalStorageDirectoryPath}/DCIM/Camera`).then((response)=>{
+      RNFS.exists(`${RNFS.ExternalStorageDirectoryPath}/DCIM/OpenCamera`).then((response)=>{
        if (response){
         console.log("existe")
        }else{
-        RNFS.mkdir(`/storage/emulated/0/DCIM/Camera`).then(()=>{console.log("Carpeta creada con exito")})
+        RNFS.mkdir(`/storage/emulated/0/DCIM/OpenCamera`).then(()=>{console.log("Carpeta creada con exito")})
         .catch(err=>console.log('error en crear la carpeta'+err))
        }
       }).catch((err) => {         
         console.log(err);
       })
 
-      const imagePath = `${RNFS.ExternalStorageDirectoryPath}/DCIM/Camera/${nameImage}.jpg`
+      const imagePath = `${RNFS.ExternalStorageDirectoryPath}/DCIM/OpenCamera/${nameImage}.JPg`
+      console.log(imagePath)
       Image.compress(imageUri,{
         quality: 0.7,
       }).then((res)=>{
