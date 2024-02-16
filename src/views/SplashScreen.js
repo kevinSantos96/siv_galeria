@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, StyleSheet, Image, Button, Platform} from 'react-native';
+import {View, StyleSheet, Image, Button, Platform,Text} from 'react-native';
 import {CommonActions} from '@react-navigation/native';
 import {
   PermissionMediaImages,
@@ -12,7 +12,7 @@ import {
 
 export const SplashScreen = ({navigation}) => {
   function getPermissons() {
-    if (Platform.OS === 'android' && Platform.Version === 33) {
+    if (Platform.OS === 'android' && Platform.Version >= 33) {
       PermissionMediaImages();
       PermissionMediaVideo();
       PermissionMediaAudio();
@@ -39,20 +39,23 @@ export const SplashScreen = ({navigation}) => {
           source={require('../assets/lion.png')}
         />
       </View>
-      <View style={{width: '50%'}}>
-        <Button title="Entrar" onPress={handlePress} />
-      </View>
+
+        <View style={{width: '50%'}}>
+          <Button style={styles.btnOpen} title="Entrar" onPress={handlePress} />
+        </View>
+        <View style={styles.VersionText}>
+            <Text style={{color:'#000',elevation:3}}>V 2.9.2</Text>
+        </View>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  root: {
-    flex: 1,
-  },
   content: {
+    backgroundColor:'#FFF',
+    justifyContent:'center',
     flex: 1,
-    justifyContent: 'center',
+    flexDirection:'column',
     alignItems: 'center',
   },
   Image: {
@@ -69,4 +72,9 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     textAlign: 'center',
   },
+  VersionText:{ 
+    top:'24%',
+    alignItems: 'end',
+    textAlign:'center'
+  }
 });
